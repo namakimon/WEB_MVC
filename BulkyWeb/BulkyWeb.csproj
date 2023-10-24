@@ -21,10 +21,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bulky.DataAccess\Bulky.DataAccess.csproj" />
+    <ProjectReference Include="..\Bulky.Utility\Bulky.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Identity\Data\" />
     <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 

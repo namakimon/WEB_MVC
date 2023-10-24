@@ -5,21 +5,28 @@
     }
     else
     {
-        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+        Layout = "/Views/Shared/_Layout.cshtml";
     }
 }
-
-<h1>Manage your account</h1>
-
 <div>
-    <h2>Change your account settings</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
+    <div class="row mx-0">
+        <div class="card-header bg-secondary bg-gradient m-lg-0 py-4">
+            <div class="col-12 text-center">
+                <h2 class="py-2 text-white">
+                    Manage your account
+                </h2>
+            </div>
         </div>
-        <div class="col-md-9">
-            @RenderBody()
+    </div>
+    <div>
+        <h3 class="text-center border-bottom pb-3 my-4 text-secondary">Change your account settings</h3>
+        <div class="row">
+            <div class="col-md-3">
+                <partial name="_ManageNav" />
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
         </div>
     </div>
 </div>
