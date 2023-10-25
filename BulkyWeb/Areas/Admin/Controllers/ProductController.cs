@@ -5,6 +5,7 @@ using Bulky.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace BulkyWeb.Areas.Admin.Controllers
 {
@@ -76,7 +77,9 @@ namespace BulkyWeb.Areas.Admin.Controllers
                     productVM.Product.ImageUrl = @"\images\product\" + fileName;
                 }
 
-                if (productVM.Product.Id == 0)
+                bool isNewProduct = productVM.Product.Id == 0;
+
+                if (isNewProduct)
                 {
                     _unitOfWork.Product.Add(productVM.Product);
                 }
@@ -86,7 +89,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 }
                 
                 _unitOfWork.Save();
-                TempData["success"] = "Product created succesfully";
+                TempData["success"] = "Company " + (isNewProduct ? "created" : "updated") + " succesfully";
 
                 return RedirectToAction("Index");
             }

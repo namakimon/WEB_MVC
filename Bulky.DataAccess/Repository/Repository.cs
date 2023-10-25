@@ -38,7 +38,7 @@ namespace Bulky.DataAccess.Repository
             }
 
             query = query.Where(filter);
-            return query.FirstOrDefault();
+            return query?.FirstOrDefault();
         }
 
         public IEnumerable<T> GetAll(string? includeProperties = null)
