@@ -231,6 +231,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
             }
 
             _unitOfWork.Save();
+            HttpContext.Session.SetInt32(SD.SessionCart, _unitOfWork.ShoppingCart.GetAll(x => x.ApplicationUserId == cartFromDB.ApplicationUserId).Count());
             return RedirectToAction(nameof(Index));
         }
 
@@ -246,6 +247,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
             _unitOfWork.ShoppingCart.Remove(cartFromDB);
             _unitOfWork.Save();
 
+            HttpContext.Session.SetInt32(SD.SessionCart, _unitOfWork.ShoppingCart.GetAll(x => x.ApplicationUserId == cartFromDB.ApplicationUserId).Count());
             return RedirectToAction(nameof(Index));
         }
 
